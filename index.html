@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clankton II - Project Interface</title>
+    <style>
+        /* --- General Styles --- */
+        body {
+            background-color: #0a0a0a; /* Sangat gelap */
+            color: #00ffcc; /* Hijau neon terang */
+            font-family: 'Consolas', 'Fira Code', monospace; /* Font monospace */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Hindari scroll horizontal */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        /* --- Header --- */
+        .header {
+            background-color: #1a1a1a; /* Agak terang dari body */
+            padding: 20px;
+            border-bottom: 2px solid #00ffff; /* Aksen biru neon */
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .header h1 {
+            color: #00ffff; /* Biru neon */
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+
+        .header p {
+            color: #90ee90; /* Hijau terang */
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+
+        /* --- Navigation --- */
+        .nav {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #00ffcc;
+        }
+
+        .nav a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+        }
+
+        /* --- Main Content Section --- */
+        .section {
+            background-color: #151515; /* Sedikit berbeda dari background */
+            padding: 30px;
+            margin-top: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+        }
+
+        .section h2 {
+            color: #00ffff;
+            font-size: 1.8em;
+            border-bottom: 1px dashed #00ffcc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .code-block {
+            background-color: #000;
+            border: 1px solid #00ffcc;
+            padding: 15px;
+            margin-top: 15px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            box-shadow: 0 0 8px rgba(0, 255, 204, 0.2);
+        }
+
+        .code-block span {
+            color: #e0e0e0; /* Warna teks kode yang lebih terang */
+        }
+        .code-block .comment { color: #888; } /* Komentar kode */
+        .code-block .keyword { color: #ff00ff; } /* Kata kunci */
+        .code-block .string { color: #ffa500; } /* String */
+        .code-block .function { color: #00bfff; } /* Fungsi */
+
+        /* --- Terminal Output Animation --- */
+        .terminal-output {
+            background-color: #000;
+            border: 1px solid #00ffcc;
+            padding: 15px;
+            margin-top: 20px;
+            min-height: 150px;
+            overflow-y: auto;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+            box-shadow: 0 0 8px rgba(0, 255, 204, 0.2);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1em;
+            background-color: #00ffcc;
+            margin-left: 2px;
+            vertical-align: text-top;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { background-color: #00ffcc; }
+            50% { background-color: transparent; }
+        }
+
+        /* --- Image Styling --- */
+        .project-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #00ffff; /* Border neon */
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Efek glow */
+            filter: grayscale(20%) brightness(1.1); /* Sedikit efek "monitor lama" */
+            transition: transform 0.3s ease;
+        }
+        .project-image:hover {
+            transform: scale(1.02); /* Sedikit zoom saat di-hover */
+        }
+
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #1a1a1a;
+            color: #888;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            border-top: 1px solid #00ffcc;
+            font-size: 0.8em;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .nav a { margin: 0 8px; font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>[ CLANKTON // II ]</h1>
+        <p>Advanced Protocol Integration & Decentralized Security</p>
+    </header>
+
+    <nav class="nav">
+        <a href="#overview">OVERVIEW</a>
+        <a href="#modules">MODULES</a>
+        <a href="#status">STATUS</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+
+    <div class="container">
+        <section id="overview" class="section">
+            <h2>&gt; Project Overview</h2>
+            <img src="https://imgur.com/a/tay40KC" alt="Clankton II Project Visual" class="project-image">
+            <p>
+                Clankton II represents the next generation of decentralized autonomous agents.
+                Engineered for robust interoperability across L2 solutions, focusing on secure
+                protocol enhancements and autonomous asset management within the Base ecosystem.
+                Our aim is to provide unparalleled security and efficiency through intelligent
+                automation and predictive analytics.
+            </p>
+            <div class="code-block">
+                <span class="comment">// Core Functionality Snippet</span><br>
+                <span class="keyword">function</span> <span class="function">initiateProtocol</span>(<span class="keyword">address</span> _deployer) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Initializing Clankton II Secure Core..."</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span>if</span> (_deployer == <span class="function">owner</span>()) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">deployModules</span>();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span>return</span> <span class="string">"Protocol Active."</span>;<br>
+                }
+            </div>
+        </section>
+
+        <section id="modules" class="section">
+            <h2>&gt; Operational Modules</h2>
+            <p>
+                The Clankton II framework is built upon a modular architecture, allowing for
+                dynamic scaling and integration of various decentralized components.
+            </p>
+            <ul>
+                <li><span style="color:#00ffff;">[ A01 ]</span> Autonomous Bridge Security</li>
+                <li><span style="color:#00ffff;">[ A02 ]</span> Real-time Threat Analysis</li>
+                <li><span style="color:#00ffff;">[ B03 ]</span> Cross-Chain Data Integrity</li>
+                <li><span style="color:#00ffff;">[ C04 ]</span> Predictive Market Agent (Base L2)</li>
+                <li><span style="color:#00ffff;">[ D05 ]</span> Decentralized Governance Orchestrator</li>
+            </ul>
+        </section>
+
+        <section id="status" class="section">
+            <h2>&gt; System Status</h2>
+            <div class="terminal-output" id="terminal-log">
+                <span style="color:#888;">[00:00:01]</span> <span style="color:#00ffcc;">> CLANKTON II online.</span><br>
+                <span style="color:#888;">[00:00:02]</span> <span style="color:#00ffff;">> Initiating network scan...</span><br>
+                <span style="color:#888;">[00:00:05]</span> <span style="color:#00ffcc;">> Base L2 connectivity: ESTABLISHED.</span><br>
+                <span style="color:#888;">[00:00:07]</span> <span style="color:#ffa500;">> Warning: Decentralized governance module pending activation.</span><br>
+                <span style="color:#888;">[00:00:10]</span> <span style="color:#00ffcc;">> All core functions nominal. Awaiting command...</span><span class="cursor"></span>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>&gt; Contact & Access</h2>
+            <p>
+                For secure access to Clankton II documentation or partnership inquiries,
+                please contact authorized personnel via encrypted channels.
+                Unauthorized access attempts will be logged and mitigated.
+            </p>
+            <p style="color:#00ffff;">&gt; encrypted_comms@clanktonii.xyz</p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        &copy; 2024 CLANKTON II Project. All rights reserved. // <span style="color:#00ffcc;">Secure // Private // Decentralized</span>
+    </footer>
+
+</body>
+</html>
